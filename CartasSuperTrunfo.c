@@ -1,22 +1,52 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
+
+struct Carta {
+    char estado[50];
+    char Codigo[5];
+    char Cidade[10];
+    int População;
+    float Area;
+    float PIB;
+};
 
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
+    struct Carta cartas[2];
+
     
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
+    for (int i = 0; i < 2; i++) {
+        printf("\n--- Carta %d ---\n", i + 1);
+
+        printf("Nome do Estado: \n");
+        scanf(" %[^\n]s", cartas[i].estado);  
+
+        printf("O Codigo: \n");
+        scanf("%s", cartas[i].Codigo);
+
+        printf("A cidade é: \n");
+        scanf(" %[^\n]s", cartas[i].Cidade);  
+
+        printf("A População é: \n");
+        scanf("%d", &cartas[i].População);
+
+        printf("Tamanho da Área: \n");
+        scanf("%f", &cartas[i].Area);
+
+        printf("O PIB? \n");
+        scanf("%f", &cartas[i].PIB);
+    }
+
+    // Exibindo os dados das cartas
+    printf("\n===== INFORMAÇÕES DAS CARTAS =====\n");
+    for (int i = 0; i < 2; i++) {
+        printf("\n--- Carta %d ---\n", i + 1);
+        printf("Nome do Estado: %s\n", cartas[i].estado);
+        printf("O Codigo: %s\n", cartas[i].Codigo);
+        printf("A Cidade: %s\n", cartas[i].Cidade);
+        printf("A População é: %d\n", cartas[i].População);
+        printf("A Área é: %.2f km²\n", cartas[i].Area);
+        printf("O PIB é: %.2f bilhões\n", cartas[i].PIB);
+    }
 
     return 0;
 }
